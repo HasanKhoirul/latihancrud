@@ -70,6 +70,7 @@ function upload()
 
 }
 
+<p> belajar untuk git </p>
 
 function hapus($id)
 {
