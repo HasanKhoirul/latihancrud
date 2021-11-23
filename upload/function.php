@@ -22,7 +22,7 @@ function tambah($data)
     $nama = htmlspecialchars($data["nama"]);
     $email = htmlspecialchars($data["email"]);
     $jurusan = htmlspecialchars($data["jurusan"]);
-    $gambar = htmlspecialchars($data["gambar"]);
+    $gamabar = htmlspecialchars($data["gamabar"]);
 
 
     //upload gambar
@@ -54,7 +54,7 @@ function upload()
         return false;
     }
 
-    //cek apakah yang diupload adalah gambar
+    //cek apakah yang diupload adalah gambarr
     $ekstensiGambarValid = ['JPG', 'jpeg', 'png', 'jpg', 'PNG', 'JPEG'];
     $ekstensiGambar = explode('.', $nameFile);
     // fungsi explode itu string menjadi array , kalau nama
@@ -64,25 +64,25 @@ function upload()
         echo "<script>
         alert('yang anda upload bukan gambar');
             </script>";
-         return false;
+            return false;
     }
 
-    //cek jika filenya ukurannya terlalu besar
+    //cek jika file ukurannya terlalu besar
     if ($ukuranFile > 1000000) {
-    echo "<script> 
-     alert ('gambar yang anda upload terlalu besar!');
-      </script>";
-     return false;
+        echo "<script>
+        alert('gambar yang anda upload terlalu besar');
+            </script>";
+            return false;
     }
-  
+
     //lolos pengecekan, gambar siap diupload
     //dan generate nama baru
-    $namaFilebaru = uniqid();
-    $namaFilebaru .= '.';
-    $namaFilebaru .= $ekstensiGambar;
+    $namafilebaru = uniqid();
+    $namafilebaru .= '.';
+    $namafilebaru .= $ekstensiGambar;
 
-    move_uploaded_file ($tapName, 'img/', $namaFilebaru);
-    return $namaFilebaru
+    move_uploaded_file($tmpName, 'img/' . $namafilebaru);
+    return $namafilebaru;
 }
 
 function ubah($data){
@@ -116,7 +116,7 @@ if ($_FILES["gambar"]["error"] === 4 ) {
 
    return mysqli_affected_rows($conn);
 }
-}
+
 
 function hapus($id)
 {
