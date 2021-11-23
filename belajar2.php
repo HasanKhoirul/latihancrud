@@ -5,7 +5,7 @@ if( !isset($_GET["Nama"]) ||
 !isset($_GET["umur"]) ||
 !isset($_GET["hobi"])){
     // fungsinya buat mencegah masuk url untuk mengakses halaman ini
-    header("Location:latihan1.php");
+    header("Location:belajar1.php");
     exit;
 }
 ?>
